@@ -4,8 +4,6 @@ A fast, private reader for comics and books that runs entirely in your browser. 
 
 Tenjin (天神) is named after the Japanese deity of learning and scholarship.
 
-**Live version:** https://thomasjngo.github.io/tenjin/
-
 ## Supported formats
 
 | Format | Works out of the box? |
