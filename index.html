@@ -354,7 +354,7 @@ body:not(.inlib) #selbar{display:none}
 #selTxt{font-weight:600;margin-right:.4rem}
 .btn:disabled{opacity:.45;pointer-events:none}
 @media (max-width:700px){#lgrid.list .card{grid-template-columns:2.6rem minmax(0,1fr) 6rem}#lgrid.list .cs{display:none}}
-/* ---- v1.2.0 stats ---- */
+/* ---- v1.2.1 stats ---- */
 #statsDlg{max-width:36rem}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:.6rem;margin-bottom:1rem}
 .tile{background:var(--fill);border-radius:14px;padding:.8rem .9rem;display:flex;flex-direction:column;gap:.1rem}
@@ -526,8 +526,8 @@ body:not(.inlib) #selbar{display:none}
     <label><input type="checkbox" id="bkKeys"> Include API keys in the backup</label>
   </div>
   <input type="file" id="bkFile" accept=".json,application/json" hidden>
-  <p class="note">A backup holds your settings, reading progress, bookmarks and online library links. Importing merges it into this browser and keeps the most recent progress.</p>
-  <p class="note">Tenjin 1.2.0 · <a href="#" id="newsBtn">What’s new</a> · <a href="#" id="statsLink">Reading stats</a></p>
+  <p class="note">A backup holds your settings, reading progress, bookmarks, custom covers, reading stats and online library links. Importing merges it into this browser and keeps the most recent progress.</p>
+  <p class="note">Tenjin 1.2.1 · <a href="#" id="newsBtn">What’s new</a> · <a href="#" id="statsLink">Reading stats</a></p>
   <div class="dbtns"><button class="btn" type="button" id="resetSet">Reset all settings</button><button class="btn primary" type="button" id="setClose">Done</button></div>
 </dialog>
 
@@ -565,7 +565,7 @@ body:not(.inlib) #selbar{display:none}
 </dialog>
 
 <dialog id="news">
-  <h2>What’s new in Tenjin 1.2.0</h2>
+  <h2>What’s new in Tenjin 1.2.1</h2>
   <ul class="nl">
     <li><b>Reading stats.</b> See time read, pages, finished books, streaks, a daily goal ring and weekly, monthly and yearly charts. Open them from the library, or press <kbd>Shift+S</kbd>.</li>
     <li><b>Better covers.</b> Tenjin now uses the front cover a comic names in its metadata, and you can pick any page as a book’s cover from the bookmarks sheet.</li>
@@ -2264,7 +2264,7 @@ body:not(.inlib) #selbar{display:none}
     b.dataset.arm="1"; b.textContent="Click again to confirm"; resetT=setTimeout(function(){ delete b.dataset.arm; b.textContent="Reset stats"; },3500);
   };
 
-  var VERSION="1.2.0";
+  var VERSION="1.2.1";
   function showNews(){ var d=$("news"); if(d.showModal&&!d.open) d.showModal(); }
   $("newsClose").onclick=function(){ closeDlg($("news")); };
   $("newsBtn").onclick=function(e){ e.preventDefault(); closeDlg(sdlg); setTimeout(showNews,220); };

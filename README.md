@@ -43,7 +43,7 @@ Files are detected by their contents as well as their extension, so a mislabelle
 ### Library
 - Click **Library** (or press `l`) and choose **This device** or **Online**.
 - **This device:** choose a folder and Tenjin scans it and all subfolders for CBZ, CBR, CB7, CBT, PDF and EPUB files. In Chrome and Edge the folder is remembered; next visit you may be asked to click **Reconnect** once to re-grant access.
-- Each comic gets a **cover preview**. Covers are generated as you scroll and saved so they only need to be made once.
+- Each comic gets a **cover preview**. If a CBZ's `ComicInfo.xml` names its front cover, Tenjin uses that page instead of always taking page 1. You can also choose any page yourself: open the bookmarks sheet and click **Use as cover**. In the library's right-click menu, **Use the default cover** undoes your choice. Covers are generated as you scroll and saved so they only need to be made once.
 - **Reading progress** is tracked for every comic: a progress bar with "Page 12 of 40", "Not started", or "Finished". Finished comics have a slightly greyed-out cover.
 - **Resume where you left off:** opening a comic jumps back to the page you were on. **Continue reading** opens whatever you read most recently.
 - **Series and volumes.** Tenjin reads each CBZ's `ComicInfo.xml` (series, volume, title) and falls back to folder and file names such as `Berserk v03.cbz`. Volumes are grouped by series, in volume order, with a "3 of 12 read" count. Switch grouping on or off with the **Series** button.
@@ -52,6 +52,15 @@ Files are detected by their contents as well as their extension, so a mislabelle
 - **Select several comics.** Click **Select** (or Ctrl/Cmd-click a comic), pick as many as you like, or use **Select all** or a series' **Select** button. Then **Mark read**, **Mark unread** or **Download** them in one go. Press `Esc` to leave selection.
 - **Search**, **filter** (All, Reading, Unread, Finished) and **sort** (Name, Recently read, Newest file).
 - **Right-click a comic** (or long-press on touch, or `Shift+F10` / the Menu key) for **Open**, **Mark as read**, **Mark as unread** and **Regenerate cover**. Online comics also get **Download for offline**, **Remove download** and **Save to device…**.
+
+### Reading stats
+Open **Stats** in the library (or press `Shift+S`, or use the link in Settings) to see how much you read:
+- **Today's goal ring.** A ring fills as you read toward a daily goal, which you can change (the default is 20 minutes).
+- **Streaks and totals.** Your current and longest streak, time and pages over the last 7 days, books finished, and your total time and pages.
+- **Charts.** A bar chart by **week**, **month** or **year**, switchable between **time** and **pages**.
+- **Most read.** Your top five books by time.
+
+Time only counts while a book is open and you are active (a few minutes with no input stops the clock), and a page counts once you stay on it for a couple of seconds. A day counts toward your streak when you read for a minute, view a few pages, or finish a book. Stats stay on your device, are included in backups, and can be reset from the Stats window.
 
 ### Online libraries
 In the library, choose **Online**, click **Add…** and paste a public folder link. You can save **several online libraries** and switch between them from the menu next to the buttons; **Edit** changes the current one, and its dialog has a button to remove it. Tenjin works out what kind of link it is, reads the folder structure (including subfolders), and lists every comic with covers and reading progress. **Your link is remembered**, so next time you open Tenjin the library is right there, and the last list stays visible offline.
@@ -92,7 +101,7 @@ In the library, choose **Online**, click **Add…** and paste a public folder li
 **What can't be read from a web page:** Proton Drive links are end-to-end encrypted, so only Proton's own app can decrypt them. Dropbox, OneDrive and SharePoint, Mega, MediaFire and iCloud links don't offer a folder listing that a web page can read. For these, download the folder with their app and use **This device → Choose folder**, or host the files on a web server you control.
 
 ### Backup and restore
-In **Settings**, **Export backup** saves a small file with your settings, reading progress, bookmarks and online library links (API keys only if you tick the box). **Import backup…** merges a backup into this browser: the most recent progress wins, bookmarks are combined, and your settings are replaced by the backup's. Use it to move to a new device or to keep a safety copy, since clearing your browser data erases everything Tenjin stores locally.
+In **Settings**, **Export backup** saves a small file with your settings, reading progress, bookmarks, custom covers, reading stats and online library links (API keys only if you tick the box). **Import backup…** merges a backup into this browser: the most recent progress wins, bookmarks are combined, and your settings are replaced by the backup's. Use it to move to a new device or to keep a safety copy, since clearing your browser data erases everything Tenjin stores locally.
 
 ### Settings
 Open **Settings** with the gear button or `s`:
@@ -127,6 +136,7 @@ Your view choices are **remembered automatically** and applied every time you op
 | Hide or show toolbars | `h`, or click the middle of the page |
 | Jump to a page number | `g` |
 | Library | `l` (`Esc` returns to the book you were reading) |
+| Reading stats | `Shift+S` |
 | Settings | `s` |
 | Fullscreen | `f` |
 | Open a file | `Ctrl/Cmd + O` |
@@ -136,7 +146,7 @@ Your view choices are **remembered automatically** and applied every time you op
 
 Everything is stored in your browser on your device.
 
-- **Settings, reading progress, bookmarks, your online links and any Google API key** are kept in the browser's local storage. Progress is matched by file name and size, so renaming or editing a file resets its progress.
+- **Settings, reading progress, bookmarks, custom covers, reading stats, your online links and any Google API key** are kept in the browser's local storage. Progress is matched by file name and size, so renaming or editing a file resets its progress.
 - **Covers, the remembered folder and downloaded books** are kept in the browser's IndexedDB. Downloads count against your browser's storage quota.
 - Data is **per browser and per device** and does not sync. Clearing your browser's site data removes it.
 - Because browser storage is shared across everything on `thomasjngo.github.io`, settings and progress from the old `cbz_reader` address carry over to Tenjin automatically.
